@@ -9,7 +9,7 @@ pipeline {
         
         stage("Code"){
             steps{
-                git url: "https://github.com/LondheShubham153/node-todo-cicd.git" , branch: "master"
+                git url: "https://github.com/sudhajobs0107/DevSecops_ToDo_App.git" , branch: "main"
                 echo "Code Cloned Successfully"
             }
         }
@@ -35,13 +35,13 @@ pipeline {
         }
         stage("Build & Test"){
             steps{
-                sh 'docker build -t node-app-batch-6:latest .'
+                sh 'docker build -t devsecops-todo-app:latest .'
                 echo "Code Built Successfully"
             }
         }
         stage("Trivy"){
             steps{
-                sh "trivy image node-app-batch-6"
+                sh "trivy image devsecops-todo-app"
             }
         }
         stage("Push to Private Docker Hub Repo"){
@@ -49,7 +49,7 @@ pipeline {
                 withCredentials([usernamePassword(credentialsId:"DockerHubCreds",passwordVariable:"dockerPass",usernameVariable:"dockerUser")]){
                 sh "docker login -u ${env.dockerUser} -p ${env.dockerPass}"
                 sh "docker tag node-app-batch-6:latest ${env.dockerUser}/node-app-batch-6:latest"
-                sh "docker push ${env.dockerUser}/node-app-batch-6:latest"
+                sh "docker push ${env.dockerUser}/devsecops-todo-app:latest"
                 }
                 
             }
