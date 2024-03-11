@@ -1,0 +1,7 @@
+version: '3.9'
+
+services:
+  web:
+    image: "sudhajobs0107/node-app:latest"
+    ports:
+      - "8000:8000"
