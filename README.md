@@ -30,7 +30,7 @@ ___
 # **Part 2** : **Setup Jenkins**
 + ### Now to install Jenkins, first we need Java install because Jenkins need Java so for to install Java use command :-
 ```
-sudo apt update
+sudo apt upgrade && sudo apt upgrade -y
 sudo apt install fontconfig openjdk-17-jre
 ```
 + ### To check Java version use command :-
@@ -88,7 +88,7 @@ docker run -itd --name sonarqube -p 9000:9000 sonarqube:lts-community
 ```
 + ### Now if we will do **docker ps** so we will see our SonarQube container is running.
 ![sonar-container](https://github.com/sudhajobs0107/DevSecOps_ToDo_App/blob/main/images/sonar-server.PNG)
-+ ### Now open port no. 90000 and copy Public IPv4 address and paste in new tab **Public IPv4 address:9000** and we will be on **Unlock SonarQube page**.
++ ### Now open port no. 9000 and copy Public IPv4 address and paste in new tab **Public IPv4 address:9000** and we will be on **Unlock SonarQube page**.
 + ### Now enter login and password=admin and it will give us screen to reset our password and we will be on **SonarQube page**.
 ![sonar-dashboard](https://github.com/sudhajobs0107/DevSecOps_ToDo_App/blob/main/images/sonar-dashboard.PNG)
 + ### Now to make devsecops pipeline, we have create user on sonarqube and this user will have acces given to jenkins. To add user in sonar, Go to SonarQube → Administrator → Security → Users → Tokens → Update Tokens → name "jenkins" → Generate.
